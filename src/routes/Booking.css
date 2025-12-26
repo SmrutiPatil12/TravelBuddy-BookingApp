@@ -1,0 +1,483 @@
+.booking-page {
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+.booking-hero {
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)),
+              url('https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg');
+  background-size: cover;
+  color: white;
+}
+
+.booking-hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  background: white;
+  margin: -2rem auto 0;
+  width: fit-content;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  z-index: 10;
+  position: relative;
+}
+
+.tabs button {
+  padding: 1rem 3rem;
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tabs button.active {
+  background: #ff6b6b;
+  color: white;
+}
+
+.search-section {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.search-form {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  margin-bottom: 3rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.search-form input, .search-form select {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 1rem;
+}
+
+.search-form button {
+  width: 100%;
+  padding: 1.2rem;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.result-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.result-card.hotel {
+  flex-direction: row;
+}
+
+.result-card.hotel img {
+  width: 200px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hotel-info {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ff6b6b;
+  margin-top: auto;
+}
+
+.book-btn {
+  margin-top: auto;
+  padding: 1rem;
+  background: #ff6b6b;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .result-card.hotel {
+    flex-direction: column;
+  }
+  .result-card.hotel img {
+    width: 100%;
+    height: 200px;
+  }
+}
+/* Existing styles remain... */
+
+/* FLIGHT RESULTS - PREMIUM DESIGN */
+.flights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.flight-card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.8rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.4s ease;
+  gap: 2rem;
+}
+
+.flight-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.flight-route {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.airline-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.route-info {
+  flex: 1;
+}
+
+.times {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.3rem;
+}
+
+.times strong {
+  font-weight: 700;
+  color: #1e3c72;
+}
+
+.airport {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+.line {
+  text-align: center;
+  margin: 1rem 0;
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.duration {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.flight-stops {
+  text-align: center;
+}
+
+.stops-badge {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.nonstop {
+  background: #e8f5e8;
+  color: #2e7d32;
+}
+
+.has-stops {
+  background: #fff8e1;
+  color: #f9a825;
+}
+
+.flight-price {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #ff6b6b;
+  text-align: right;
+}
+
+.flight-price strong {
+  display: block;
+}
+
+.book-btn {
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+}
+
+.book-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 15px 30px rgba(255, 107, 107, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .flights-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .flight-card {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .flight-price {
+    align-self: flex-end;
+    margin-top: 1rem;
+  }
+  
+  .book-btn {
+    align-self: flex-end;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .flight-route {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .times {
+    font-size: 1.1rem;
+  }
+}
+/* HOTELS GRID */
+.hotels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.hotel-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.hotel-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.hotel-image {
+  height: 220px;
+  overflow: hidden;
+}
+
+.hotel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.hotel-card:hover .hotel-image img {
+  transform: scale(1.1);
+}
+
+.no-image {
+  height: 100%;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 1.2rem;
+}
+
+.hotel-details {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.hotel-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1e3c72;
+  margin: 0 0 0.8rem 0;
+  line-height: 1.3;
+}
+
+.hotel-location {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.hotel-location i {
+  color: #ff6b6b;
+  margin-right: 6px;
+}
+
+.hotel-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.rating-badge {
+  background: #ff6b6b;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.reviews {
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.amenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.amenity-tag {
+  background: #f0f8ff;
+  color: #1e3c72;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.more {
+  color: #888;
+  font-size: 0.85rem;
+  align-self: center;
+}
+
+.hotel-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto;
+}
+
+.hotel-price {
+  text-align: left;
+}
+
+.from {
+  font-size: 0.9rem;
+  color: #888;
+  display: block;
+}
+
+.hotel-price strong {
+  font-size: 2rem;
+  color: #ff6b6b;
+  font-weight: 800;
+}
+
+.per-night {
+  font-size: 0.9rem;
+  color: #666;
+  display: block;
+}
+
+.view-deal-btn {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+  white-space: nowrap;
+}
+
+.view-deal-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 15px 30px rgba(255, 107, 107, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hotels-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hotel-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .view-deal-btn {
+    align-self: stretch;
+    text-align: center;
+  }
+}
