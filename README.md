@@ -2,7 +2,7 @@
 
 A modern, responsive travel booking website built with **React** and **Vite**. Features real-time flight and hotel search powered by **SerpApi** (Google Flights & Google Hotels integration).
 
-Live Demo: (Deploy on Vercel/Netlify and add link here)  
+Live Demo: travelbuddy-swart.vercel.app
 Repo: https://github.com/SmrutiPatil12/TravelBuddy-BookingApp
 
 ## Features
