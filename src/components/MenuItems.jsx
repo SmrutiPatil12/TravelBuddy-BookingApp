@@ -17,12 +17,12 @@ export const MenuItems = [
     cName: 'nav-links',
     icon: 'fa-solid fa-briefcase',
   },
-  {
-    title: 'Booking',
-    url: '/booking',
-    cName: 'nav-links',
-    icon: 'fa-solid fa-plane-departure',
-  },
+  // {
+  //   title: 'Booking',
+  //   url: '/booking',
+  //   cName: 'nav-links',
+  //   icon: 'fa-solid fa-plane-departure',
+  // },
   {
     title: 'Contact',
     url: '/contact',

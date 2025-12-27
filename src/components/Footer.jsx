@@ -25,11 +25,11 @@ const Footer = () => {
         <div className="footer-section services">
           <h4>Our Services</h4>
           <ul>
-            <li><a href="/services">Tour Packages</a></li>
-            <li><a href="/services">Hotel Booking</a></li>
-            <li><a href="/services">Flight Booking</a></li>
-            <li><a href="/services">Visa Assistance</a></li>
-            <li><a href="/services">Travel Insurance</a></li>
+            <li><a href="/service">Tour Packages</a></li>
+            <li><a href="/booking">Hotel Booking</a></li>
+            <li><a href="/booking">Flight Booking</a></li>
+            <li><a href="/service">Visa Assistance</a></li>
+            <li><a href="/service">Travel Insurance</a></li>
           </ul>
         </div>
         

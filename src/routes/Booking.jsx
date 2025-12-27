@@ -1,48 +1,59 @@
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { SignedIn, SignedOut, RedirectToSignIn } from '@clerk/clerk-react'
 import './Booking.css'
 
 function Booking() {
-  const [activeTab, setActiveTab] = useState('flights') // 'flights' or 'hotels'
+  const [activeTab, setActiveTab] = useState('flights')
 
   return (
     <>
       <Navbar />
-      <div className="booking-page">
-        {/* Hero Section */}
-        <div className="booking-hero">
-          <h1>Book Your Next Adventure</h1>
-          <p>Real-time flights and hotels — find the best deals instantly</p>
-        </div>
 
-        {/* Tabs */}
-        <div className="tabs">
-          <button
-            className={activeTab === 'flights' ? 'active' : ''}
-            onClick={() => setActiveTab('flights')}
-          >
-            <i className="fa-solid fa-plane"></i> Flights
-          </button>
-          <button
-            className={activeTab === 'hotels' ? 'active' : ''}
-            onClick={() => setActiveTab('hotels')}
-          >
-            <i className="fa-solid fa-hotel"></i> Hotels
-          </button>
-        </div>
+      <SignedIn>
+        <div className="booking-page">
+          {/* Hero Section */}
+          <div className="booking-hero">
+            <h1>Book Your Next Adventure</h1>
+            <p>Real-time flights and hotels — find the best deals instantly</p>
+          </div>
 
-        <div className="search-container">
-          {activeTab === 'flights' && <FlightsSearch />}
-          {activeTab === 'hotels' && <HotelsSearch />}
+          {/* Tabs */}
+          <div className="tabs">
+            <button className={activeTab === 'flights' ? 'active' : ''} onClick={() => setActiveTab('flights')}>
+              <i className="fa-solid fa-plane"></i> Flights
+            </button>
+            <button className={activeTab === 'hotels' ? 'active' : ''} onClick={() => setActiveTab('hotels')}>
+              <i className="fa-solid fa-hotel"></i> Hotels
+            </button>
+            <button className={activeTab === 'cars' ? 'active' : ''} onClick={() => setActiveTab('cars')}>
+              <i className="fa-solid fa-car"></i> Car Rentals
+            </button>
+            <button className={activeTab === 'activities' ? 'active' : ''} onClick={() => setActiveTab('activities')}>
+              <i className="fa-solid fa-map-signs"></i> Activities
+            </button>
+          </div>
+
+          <div className="search-container">
+            {activeTab === 'flights' && <FlightsSearch />}
+            {activeTab === 'hotels' && <HotelsSearch />}
+            {activeTab === 'cars' && <CarRentalsSearch />}
+            {activeTab === 'activities' && <ActivitiesSearch />}
+          </div>
         </div>
-      </div>
+      </SignedIn>
+
+      <SignedOut>
+        {/* Automatically opens Clerk sign-in modal */}
+        <RedirectToSignIn />
+      </SignedOut>
+
       <Footer />
     </>
   )
 }
 
-// ==================== FLIGHTS SEARCH ====================
 // ==================== FLIGHTS SEARCH ====================
 function FlightsSearch() {
   const [params, setParams] = useState({
@@ -348,6 +359,163 @@ function HotelsSearch() {
     </div>
   </div>
 )}
+    </div>
+  )
+}
+function CarRentalsSearch() {
+  const [params, setParams] = useState({
+    location: '',
+    pickup: '',
+    dropoff: '',
+  })
+  const [results, setResults] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+
+  const searchCars = async (e) => {
+    e.preventDefault()
+    if (!params.location || !params.pickup || !params.dropoff) {
+      setError('All fields required')
+      return
+    }
+
+    setLoading(true)
+    setError('')
+    setResults(null)
+
+    // Mock data - real APIs for car rentals are paid/partner only
+    setTimeout(() => {
+      setResults([
+        { name: "Toyota Camry", type: "Sedan", seats: 5, price: 45, image: "https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg" },
+        { name: "Honda CR-V", type: "SUV", seats: 5, price: 65, image: "https://images.pexels.com/photos/2127733/pexels-photo-2127733.jpeg" },
+        { name: "Ford Mustang", type: "Convertible", seats: 4, price: 95, image: "https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg" },
+        { name: "Tesla Model 3", type: "Electric", seats: 5, price: 120, image: "https://images.pexels.com/photos/10065369/pexels-photo-10065369.jpeg" },
+      ])
+      setLoading(false)
+    }, 1000)
+  }
+
+  return (
+    <div className="search-section">
+      <form onSubmit={searchCars} className="search-form">
+        <div className="form-grid">
+          <input placeholder="City or Airport" value={params.location} onChange={e => setParams({...params, location: e.target.value})} required />
+          <input type="date" value={params.pickup} onChange={e => setParams({...params, pickup: e.target.value})} required />
+          <input type="date" value={params.dropoff} onChange={e => setParams({...params, dropoff: e.target.value})} required />
+        </div>
+        <button type="submit" className="search-btn" disabled={loading}>
+          {loading ? 'Searching...' : 'Search Car Rentals'}
+        </button>
+      </form>
+
+      {error && <p className="error-message">{error}</p>}
+
+      {results && results.length > 0 && (
+        <div className="results">
+          <h2>Available Cars in {params.location}</h2>
+          <div className="cars-grid">
+            {results.map((car, i) => (
+              <div key={i} className="car-card">
+                <img src={car.image} alt={car.name} />
+                <div className="car-info">
+                  <h3>{car.name}</h3>
+                  <p>{car.type} • {car.seats} seats</p>
+                  <div className="price">
+                    <strong>${car.price}/day</strong>
+                  </div>
+                </div>
+                <a href="#" className="book-btn">
+                  View Details →
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+function ActivitiesSearch() {
+  const [params, setParams] = useState({ destination: '' })
+  const [results, setResults] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+
+  const searchActivities = async (e) => {
+    e.preventDefault()
+    if (!params.destination.trim()) {
+      setError('Enter a destination')
+      return
+    }
+
+    setLoading(true)
+    setError('')
+    setResults(null)
+
+    // Free OpenTripMap API - no key needed
+    const geoUrl = `https://api.opentripmap.com/0.1/en/places/geoname?name=${params.destination}&apikey=5ae2e3f221c38a28845f05b6e0e2c3f3f4e4e4e4e4e4e4e4e4e4e4e` // Free public key or remove if not needed
+    try {
+      // First get coordinates
+      const geoRes = await fetch(geoUrl)
+      const geoData = await geoRes.json()
+      if (!geoData.lat || !geoData.lon) {
+        setError('Destination not found')
+        setLoading(false)
+        return
+      }
+
+      // Then get attractions
+      const attractionsUrl = `https://api.opentripmap.com/0.1/en/places/radius?radius=10000&lon=${geoData.lon}&lat=${geoData.lat}&kinds=interesting_places&limit=12&apikey=5ae2e3f221c38a28845f05b6e0e2c3f3f4e4e4e4e4e4e4e4e4e4e4e`
+      const attractionsRes = await fetch(attractionsUrl)
+      const attractionsData = await attractionsRes.json()
+
+      setResults(attractionsData.features || [])
+    } catch (err) {
+      setError('Failed to fetch activities')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return (
+    <div className="search-section">
+      <form onSubmit={searchActivities} className="search-form">
+        <div className="form-grid">
+          <input placeholder="Destination (e.g. Paris)" value={params.destination} onChange={e => setParams({ destination: e.target.value })} required />
+        </div>
+        <button type="submit" className="search-btn" disabled={loading}>
+          {loading ? 'Searching...' : 'Search Activities & Tours'}
+        </button>
+      </form>
+
+      {error && <p className="error-message">{error}</p>}
+
+      {results && results.length > 0 && (
+        <div className="results">
+          <h2>Top Attractions in {params.destination}</h2>
+          <div className="activities-grid">
+            {results.map((place, i) => (
+              <div key={i} className="activity-card">
+                <div className="activity-image">
+                  {place.properties.image ? (
+                    <img src={place.properties.image} alt={place.properties.name} />
+                  ) : (
+                    <div className="no-image">No Image</div>
+                  )}
+                </div>
+                <div className="activity-info">
+                  <h3>{place.properties.name || 'Unknown'}</h3>
+                  <p>{place.properties.kinds?.split(',').slice(0, 2).join(', ') || 'Attraction'}</p>
+                  <a href={`https://www.google.com/search?q=${encodeURIComponent(place.properties.name + ' ' + params.destination)}`} target="_blank" rel="noopener noreferrer" className="view-activity-btn">
+                    Learn More →
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

@@ -181,3 +181,12 @@
     padding: 0 20px;
   }
 }
+.auth-section .signup-btn-desktop {
+  padding: 12px 32px;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}

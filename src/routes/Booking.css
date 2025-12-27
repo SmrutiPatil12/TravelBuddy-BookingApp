@@ -285,6 +285,10 @@
     align-self: flex-end;
     margin-top: 1rem;
   }
+  .tabs{
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 600px) {
@@ -296,6 +300,10 @@
   
   .times {
     font-size: 1.1rem;
+  }
+  .tabs{
+    display: flex;
+    flex-direction: column;
   }
 }
 /* HOTELS GRID */
@@ -480,4 +488,121 @@
     align-self: stretch;
     text-align: center;
   }
+}
+.cars-grid, .activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.car-card, .activity-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: 0.4s;
+}
+
+.car-card:hover, .activity-card:hover {
+  transform: translateY(-10px);
+}
+
+.car-card img, .activity-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.car-info, .activity-info {
+  padding: 1.5rem;
+}
+.activities-form .form-grid {
+  grid-template-columns: 1fr;
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.activity-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: 0.4s;
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-card:hover {
+  transform: translateY(-10px);
+}
+
+.activity-image {
+  height: 220px;
+  overflow: hidden;
+}
+
+.activity-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.activity-card:hover .activity-image img {
+  transform: scale(1.1);
+}
+
+.activity-info {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1e3c72;
+  margin-bottom: 0.8rem;
+}
+
+.activity-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.activity-category {
+  color: #ff6b6b;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.activity-subcategory {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: auto;
+}
+
+.view-activity-btn {
+  margin-top: auto;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+.view-activity-btn:hover {
+  transform: scale(1.05);
 }

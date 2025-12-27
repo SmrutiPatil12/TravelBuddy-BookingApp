@@ -67,3 +67,49 @@
     grid-template-columns: 1fr;
   }
 }
+.service-card {
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: all 0.4s ease;
+}
+
+.service-card.clickable {
+  cursor: pointer;
+}
+
+.service-card.clickable:hover {
+  transform: translateY(-12px);
+}
+
+.service-card img {
+  transition: transform 0.5s ease;
+}
+
+.service-card:hover img {
+  transform: scale(1.1);
+}
+
+.service-cta {
+  color: #ff6b6b;
+  font-weight: bold;
+  font-size: 0.95rem;
+  margin-top: auto;
+  display: block;
+}
+
+.coming-soon {
+  opacity: 0.85;
+}
+
+.coming-soon-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #ff6b6b;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
