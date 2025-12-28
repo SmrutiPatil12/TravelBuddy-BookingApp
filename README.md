@@ -1,28 +1,35 @@
 # TravelBuddy Booking App ✈️🏨
 
-A modern, responsive travel booking website built with **React** and **Vite**. Features real-time flight and hotel search powered by **SerpApi** (Google Flights & Google Hotels integration).
+A modern, responsive travel booking web application built with **React** and **Vite**. It provides real-time flight and hotel search powered by **SerpApi** (Google Flights & Google Hotels), along with static/premium pages for services, travel guides, and insurance.
 
-Live Demo: travelbuddy-swart.vercel.app
-Repo: https://github.com/SmrutiPatil12/TravelBuddy-BookingApp
+**Live Demo:** https://travelbuddy-swart.vercel.app  
+**Repository:** https://github.com/SmrutiPatil12/TravelBuddy-BookingApp
 
-## Features
-- **Premium Glassmorphism Design** — Modern UI with blur effects, hover animations, and elegant typography
-- **Real-Time Search** — Powered by SerpApi for live flight prices, schedules, and hotel deals
-- **Flights Tab** — Search round-trip/one-way with airline details, duration, stops, and direct booking links
-- **Hotels Tab** — Search by destination with images, ratings, amenities, and direct "View Deal" links
-- **Fully Responsive** — Looks stunning on desktop, tablet, and mobile
-- **Fast & Secure** — Uses a backend proxy to keep API keys hidden (no CORS issues)
+### Features
 
-## Tech Stack
-- **Frontend**: React, Vite, React Router
-- **Styling**: Pure CSS (with glassmorphism, gradients, and animations)
-- **API**: SerpApi (Google Flights & Google Hotels) via Node.js/Express proxy
-- **Icons**: Font Awesome
+- Premium glassmorphism UI with smooth animations, hover effects, and mobile-first design
+- Real-time flight search (round-trip & one-way) powered by SerpApi
+- Real-time hotel search with images, ratings, amenities, and direct booking links
+- Beautiful Services page with clickable cards linking to Flights & Hotels
+- Dedicated static pages for Travel Guides & Tips and Travel Insurance
+- Protected Booking page (only accessible after login with Clerk Auth)
+- Responsive mobile sidebar menu with glassmorphism blur effect
+- Secure API calls via Node.js/Express proxy server (no exposed keys)
+- Clean, maintainable code structure with React Router
 
-## Setup & Run Locally
+### Tech Stack
 
-### Frontend (This Repo)
-1. Clone the repo:
+- **Frontend:** React, Vite, React Router, Clerk Authentication
+- **Styling:** Pure CSS (glassmorphism, gradients, custom animations)
+- **Backend Proxy:** Node.js, Express (for SerpApi calls)
+- **API Integration:** SerpApi (Google Flights & Hotels)
+- **Icons:** Font Awesome
+- **Deployment:** Vercel (frontend)
+
+### Installation & Local Setup
+
+#### Frontend
+1. Clone the repository:
    ```bash
    git clone https://github.com/SmrutiPatil12/TravelBuddy-BookingApp.git
    cd TravelBuddy-BookingApp
@@ -33,40 +40,56 @@ Repo: https://github.com/SmrutiPatil12/TravelBuddy-BookingApp
    ```
 3. Create `.env` in root:
    ```
-   VITE_SERPAPI_KEY=your_serpapi_key_here
+   VITE_CLERK_PUBLISHABLE_KEY=pk_test_xxxxxxxxxxxx
+   VITE_SERPAPI_KEY=your_serpapi_key_here   # optional for direct testing
    ```
-4. Run:
+4. Start development server:
    ```bash
    npm run dev
    ```
    Open http://localhost:5173
 
-### Backend Proxy (Required for Searches)
-Create a `server` folder in the project or separately:
-```bash
-mkdir server && cd server
-npm init -y
-npm install express cors axios dotenv
-```
+#### Proxy Server (Required for Searches)
+1. Go to `server/` folder:
+   ```bash
+   cd server
+   npm install
+   ```
+2. Create `.env` in `server/`:
+   ```
+   SERPAPI_KEY=your_serpapi_key_here
+   PORT=5000
+   ```
+3. Run the proxy:
+   ```bash
+   node index.js
+   ```
 
-Create `index.js` (proxy code from earlier) and `.env` with your `SERPAPI_KEY`.
+### Deployment
 
-Run:
-```bash
-node index.js
-```
+**Frontend (Vercel)**
+- Push to GitHub
+- Connect repo in Vercel dashboard
+- Add environment variables: `VITE_CLERK_PUBLISHABLE_KEY`
+- Deploy → Live in minutes
 
-## Deployment
-- Frontend: Vercel, Netlify, or GitHub Pages (free & easy)
-- Backend Proxy: Render, Vercel Serverless Functions, or Railway
+**Proxy Backend**
+- Deploy on Render.com, Railway.app, or Cyclic.sh
+- Add `SERPAPI_KEY` as environment variable
+- Update fetch URLs in `Booking.jsx` to your live proxy URL
 
-## Future Improvements
-- Add car rentals & activities search
-- User accounts & booking history
-- Payment integration mock
-- Multi-language support
+### Future Improvements
 
-Made with ❤️ by **Smruti Patil**  
-Feel free to star ⭐ the repo and fork it!
+- Add real car rentals & activities via RapidAPI
+- User dashboard with saved searches/bookings
+- Multi-city flight search
+- Travel package builder (flight + hotel + car)
+- Dark mode toggle
 
-Happy Traveling! 🌍✈️
+### Acknowledgments
+
+Built with love by **Smruti Patil**  
+Inspired by modern travel platforms like Booking.com, Google Flights, and premium UI trends.
+
+Happy Traveling! 🌍✈️🏨  
+Feedback & stars ⭐ welcome!
