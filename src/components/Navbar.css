@@ -47,6 +47,15 @@
   list-style: none;
   gap: 3rem;
 }
+.cta-btn {
+  /* padding: 1.2rem 3rem; */
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  color: white;
+  border-radius: 50px;
+  font-size: 1.3rem;
+  text-decoration: none;
+  font-weight: bold;
+}
 
 .nav-links {
   color: #ffffff;
@@ -110,68 +119,139 @@
 @media screen and (max-width: 960px) {
   .menu-icons {
     display: block;
-    z-index: 10;
+    z-index: 1001;
+    font-size: 1.8rem;
+    color: #fff;
+    cursor: pointer;
   }
 
-  .signup-btn-desktop {
-    display: none;
-  }
-
+  /* Mobile Sidebar Menu - Premium Glassmorphism */
   .nav-menu {
     position: fixed;
     top: 0;
-    left: -120%;
-    width: 80%;
+    left: -120%; /* Start off-screen */
+    width: 80%; /* Slightly narrower for better feel */
+    max-width: 350px;
     height: 100vh;
-    background: rgba(165, 225, 238, 0.98);
-    backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(15, 25, 45, 0.95); /* Deep dark blue with high opacity */
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 10px 0 40px rgba(0, 0, 0, 0.4);
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: left 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    gap: 3.5rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 100px 2rem 2rem;
+    transition: left 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+    gap: 2.5rem;
+    overflow-y: auto;
+    z-index: 1000;
   }
 
+  /* Active state - slide in */
   .nav-menu.active {
     left: 0;
   }
 
+  /* Logo in mobile menu (optional - adds polish) */
+  .nav-menu::before {
+    content: 'TravelBuddy';
+    position: absolute;
+    top: 30px;
+    left: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+
+  /* Mobile links - larger touch targets */
   .nav-links {
-    font-size: 1.8rem;
-    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #fff;
+    padding: 1rem 0;
+    width: 100%;
+    position: relative;
+    transition: all 0.3s ease;
   }
 
   .nav-links::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
     height: 3px;
+    background: linear-gradient(90deg, #ff6b6b, #ff8e8e);
+    transition: width 0.4s ease;
   }
 
-  /* Mobile Sign Up Button */
+  .nav-links:hover::after,
+  .nav-links:active::after {
+    width: 60px;
+  }
+
+  .nav-links i {
+    margin-right: 12px;
+    font-size: 1.8rem;
+  }
+
+  /* Auth buttons in mobile */
+  .nav-auth-mobile,
   .nav-signup-mobile {
+    width: 100%;
+    text-align: center;
     margin-top: 2rem;
   }
 
-  .signup-btn-mobile {
-    display: block;
-    padding: 16px 50px;
+  .auth-btn-mobile,
+  .signup-btn-desktop {
+    width: 80%;
+    padding: 1rem 2rem;
     background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
     color: white;
     border: none;
     border-radius: 50px;
-    font-size: 1.4rem;
-    font-weight: 600;
-    text-decoration: none;
-    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
-    transition: all 0.4s ease;
+    font-size: 1.3rem;
+    font-weight: bold;
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
   }
 
-  .signup-btn-mobile:hover {
-    transform: scale(1.05);
-    box-shadow: 0 20px 40px rgba(255, 107, 107, 0.5);
+  /* Close icon positioning */
+  .menu-icons {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+  }
+
+  /* Overlay when menu open */
+  .nav-menu.active ~ .NavbarItems::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    animation: fadeIn 0.4s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Hide desktop auth on mobile */
+  .desktop-auth {
+    display: none;
   }
 }
-
+.menu-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
 @media screen and (max-width: 480px) {
   .navbar-logo {
     font-size: 2rem;

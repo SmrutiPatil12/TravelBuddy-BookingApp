@@ -8,6 +8,8 @@ import About from './routes/About'
 import Service from './routes/Service'
 import Booking from './routes/Booking'
 import Contact from './routes/Contact'
+import TravelGuides from './routes/TravelGuides'
+import TravelInsurance from './routes/TravelInsurance'
 
 function App() {
   return (
@@ -30,7 +32,8 @@ function App() {
       <Route path="/service" element={<Service />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/booking" element={<Booking />} /> 
-      
+      <Route path="/travel-guides" element={<TravelGuides />} />
+      <Route path="/travel-insurance" element={<TravelInsurance />} />
     </Routes>
     </>
   )

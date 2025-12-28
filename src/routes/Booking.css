@@ -489,33 +489,130 @@
     text-align: center;
   }
 }
-.cars-grid, .activities-grid {
+/* Car Rentals Results - Premium Card Style */
+.cars-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 2.5rem;
   margin-top: 3rem;
 }
 
-.car-card, .activity-card {
+.car-card {
   background: white;
-  border-radius: 16px;
+  border-radius: 28px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  transition: 0.4s;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.car-card:hover, .activity-card:hover {
-  transform: translateY(-10px);
+.car-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.18);
 }
 
-.car-card img, .activity-card img {
+/* Car Image */
+.car-card img {
   width: 100%;
-  height: 200px;
+  height: 240px;
   object-fit: cover;
+  transition: transform 0.6s ease;
 }
 
-.car-info, .activity-info {
-  padding: 1.5rem;
+.car-card:hover img {
+  transform: scale(1.08);
+}
+
+/* Car Info Section */
+.car-info {
+  padding: 2rem;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.car-info h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e3c72;
+  margin: 0 0 0.8rem 0;
+}
+
+.car-info p {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0 0 1.5rem 0;
+}
+
+.price {
+  margin: 1.5rem 0;
+}
+
+.price strong {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #ff6b6b;
+}
+
+/* View Details Button - Gradient Pill */
+.book-btn {
+  margin-top: auto;
+  margin-bottom: 10px;
+  align-self: center;
+  padding: 1rem 2.8rem;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.book-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 35px rgba(255, 107, 107, 0.4);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .cars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .car-info {
+    padding: 1.8rem;
+  }
+
+  .car-info h3 {
+    font-size: 1.6rem;
+  }
+
+  .price strong {
+    font-size: 2.2rem;
+  }
+
+  .car-card img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .car-info {
+    padding: 1.5rem;
+  }
+
+  .book-btn {
+    padding: 1rem 2.2rem;
+    font-size: 1rem;
+  }
 }
 .activities-form .form-grid {
   grid-template-columns: 1fr;

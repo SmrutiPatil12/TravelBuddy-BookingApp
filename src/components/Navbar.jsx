@@ -12,6 +12,7 @@ function Navbar() {
 
   return (
     <nav className="NavbarItems">
+      {clicked && <div className="menu-overlay" onClick={closeMobileMenu}></div>}
       <h1 className="navbar-logo">TravelBuddy</h1>
 
       {/* Hamburger Icon */}
@@ -59,7 +60,7 @@ function Navbar() {
         <li className="nav-auth-mobile">
           <SignedOut>
             <SignInButton mode="modal">
-              <button className="auth-btn-mobile">Sign In / Sign Up</button>
+              <button className="cta-btn">Sign Up</button>
             </SignInButton>
           </SignedOut>
           <SignedIn>

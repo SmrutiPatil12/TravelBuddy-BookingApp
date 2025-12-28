@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import './LandingDashboard.css'
 import Destination from '../components/Destination'
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react'
 
 function LandingDashboard() {
   return (
@@ -13,7 +14,15 @@ function LandingDashboard() {
         <div className="hero-section">
           <h1>Welcome to TravelBuddy</h1>
           <p>Discover amazing destinations, plan your perfect trip, and book with ease.</p>
-          <Link to="/" className="cta-btn">Sign Up</Link>
+          
+          <SignedOut>
+            <SignInButton mode="modal">
+                <button className=" cta-btn">Sign Up</button>
+            </SignInButton>
+           </SignedOut>
+           <SignedIn>
+                <UserButton afterSignOutUrl="/" />
+           </SignedIn>
         </div>
 
         <div className="features">

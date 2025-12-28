@@ -61,30 +61,35 @@ function Service() {
             <span className="service-cta">Find Hotels →</span>
           </div>
 
-          {/* Car Rentals - Coming Soon */}
-          <div className="service-card coming-soon">
+          {/* Car Rentals */}
+          <div className="service-card clickable"
+          onClick={() => handleBookingClick('hotels')}>
             <img 
               src="https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg" 
               alt="Car Rental" 
             />
             <h3>Car Rentals</h3>
             <p>Rent a car at your destination for complete freedom and flexibility.</p>
-            <span className="coming-soon-badge">Coming Soon</span>
+            <span className="service-cta">Car Rentals →</span>
           </div>
 
-          {/* Activities & Tours */}
-          <div className="service-card coming-soon">
+          {/* Activities & Tours - Coming Soon */}
+          <div className="service-card coming-soon"
+          onClick={() => handleBookingClick('hotels')}>
             <img 
               src="https://images.pexels.com/photos/1540406/pexels-photo-1540406.jpeg" 
               alt="Activities" 
             />
             <h3>Activities & Tours</h3>
             <p>Book local experiences, guided tours, attractions, and adventures.</p>
-            <span className="coming-soon-badge">Coming Soon</span>
+            <span className="service-cta">Activities →</span>
           </div>
 
-          {/* Travel Guides & Tips */}
-          <div className="service-card">
+          {/* Travel Guides & Tips - Navigates to dedicated page */}
+          <div 
+            className="service-card clickable" 
+            onClick={() => navigate('/travel-guides')}
+          >
             <img 
               src="https://images.pexels.com/photos/450597/pexels-photo-450597.jpeg" 
               alt="Travel Guides" 
@@ -94,8 +99,11 @@ function Service() {
             <span className="service-cta">Explore Guides →</span>
           </div>
 
-          {/* Travel Insurance */}
-          <div className="service-card">
+          {/* Travel Insurance - Navigates to dedicated page */}
+          <div 
+            className="service-card clickable" 
+            onClick={() => navigate('/travel-insurance')}
+          >
             <img 
               src="https://images.pexels.com/photos/394372/pexels-photo-394372.jpeg" 
               alt="Travel Insurance" 

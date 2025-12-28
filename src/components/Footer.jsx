@@ -16,20 +16,20 @@ const Footer = () => {
           <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/about">About Us</a></li>
-            <li><a href="/tours">Tours</a></li>
+            {/* <li><a href="/tours">Tours</a></li>
             <li><a href="/destinations">Destinations</a></li>
-            <li><a href="/blog">Blog</a></li>
+            <li><a href="/blog">Blog</a></li> */}
           </ul>
         </div>
         
         <div className="footer-section services">
           <h4>Our Services</h4>
           <ul>
-            <li><a href="/service">Tour Packages</a></li>
+            <li><a href="/travel-guides">Tour Packages</a></li>
             <li><a href="/booking">Hotel Booking</a></li>
             <li><a href="/booking">Flight Booking</a></li>
-            <li><a href="/service">Visa Assistance</a></li>
-            <li><a href="/service">Travel Insurance</a></li>
+            <li><a href="/travel-guides">Visa Assistance</a></li>
+            <li><a href="/travel-insurance">Travel Insurance</a></li>
           </ul>
         </div>
         
