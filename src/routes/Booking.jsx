@@ -100,7 +100,7 @@ function FlightsSearch() {
     }
 
     try {
-      const res = await fetch('http://localhost:5000/api/search', {
+      const res = await fetch(''https://travelbuddy-proxy.onrender.com/api/search'', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -234,7 +234,7 @@ function HotelsSearch() {
     }
 
     try {
-      const res = await fetch('http://localhost:5000/api/search', {
+      const res = await fetch('https://travelbuddy-proxy.onrender.com/api/search', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
